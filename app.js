@@ -1,6 +1,7 @@
 
 const express = require('express');
 const app = express();
+app.use(express.json());
 let db = require("./fake-db");
 const cors = require('cors');
 const port = 8000;
@@ -13,6 +14,11 @@ app.get('/', (req, res) => {
 });
 app.get('/user/:id', (req, res) => {
     const user = db.getUser(req.params.id);
+    res.send(user);
+});
+app.post('/user', (req, res) => {
+    const { name, phone, email, role } = req.body;
+    const user = db.addUser(name, phone, email, role);
     res.send(user);
 });
 
