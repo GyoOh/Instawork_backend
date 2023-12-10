@@ -21,6 +21,17 @@ app.post('/user', (req, res) => {
     const user = db.addUser(name, phone, email, role);
     res.send(user);
 });
+app.put('/user/:id', (req, res) => {
+    const id = parseInt(req.params.id)
+    const { name, phone, email, role } = req.body;
+    const user = db.updateUser(id, name, phone, email, role);
+    res.send(user);
+});
+app.delete('/user/:id', (req, res) => {
+    const id = parseInt(req.params.id)
+    const user = db.deleteUser(id);
+    res.send(user);
+});
 
 app.listen(port, () => {
     console.log(`app listening at http://localhost:${port}`);
