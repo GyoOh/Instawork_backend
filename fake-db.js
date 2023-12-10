@@ -30,7 +30,7 @@ const users = [
 ];
  
 function getUser(id) {
-    return users.find((user) => user.id === id);
+    return users.find((user) => user.id == id);
 }
  function getUsers() {
     return users;
@@ -41,11 +41,26 @@ function addUser(name, phone, email, role) {
     users.push({ id, name, phone, email, role });
     return { id, name, phone, email, role};
 }
+function updateUser(id, name, phone, email, role) {
+    const user = users.find((user) => user.id == id);
+    user.name = name;
+    user.phone = phone;
+    user.email = email;
+    user.role = role;
+    return user;
+}
+function deleteUser(id) {
+    const user = users.find((user) => user.id == id);
+    users.splice(users.indexOf(user), 1);
+    return user;
+}
   
   
   module.exports = {
     addUser,
     getUsers,
     getUser,
+    updateUser,
+    deleteUser
   };
   
