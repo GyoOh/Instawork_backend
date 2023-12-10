@@ -14,6 +14,7 @@ This project contains the back-end code for Instawork's home assignment
 
 Project is created with:
 - express version: 4.18.2
+- cors version: 2.8.5
 
 ## Setup
 
@@ -21,7 +22,6 @@ To run this project, install it locally using npm:
 
 ```
 $ npm install
-$ npm start
-$ npm i --global nodemon
-$ npm run dev
+$ npm i nodemon
+$ npm start or npm run dev
 ```
